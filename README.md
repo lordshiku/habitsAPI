@@ -2,6 +2,8 @@
 
 An intermediate **REST API** that lets you create habits, record daily logs, compute streaks, and enrich responses with a motivational quote from an **external REST service**—fully covered by a modern **pytest** suite (with async tests and mocked HTTP).
 
+runs locally using venv at http://127.0.0.1:8000/docs#/habits/create_habit_habits_post
+Open the interactive docs: http://127.0.0.1:8000/docs
 ---
 
 ## Table of Contents
