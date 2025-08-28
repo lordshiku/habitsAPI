@@ -6,6 +6,14 @@ runs locally using venv at http://127.0.0.1:8000/docs#/habits/create_habit_habit
 Open the interactive docs: http://127.0.0.1:8000/docs
 ---
 
+## TL;DR
+- FastAPI habit-tracking REST API: create habits, add daily logs, compute streaks; enrich responses with an external quotes API.
+- Stack: FastAPI, SQLAlchemy 2.0 (SQLite), Pydantic v2, httpx; tests with pytest, pytest-asyncio, respx (HTTP mocking).
+- Run: `python -m venv .venv && source .venv/bin/activate` (Windows: `.venv\Scripts\activate`) → `pip install -r requirements.txt` → `uvicorn app.main:app --reload`.
+- Docs: Open **http://127.0.0.1:8000/docs**; core endpoints include `/habits`, `/habits/{id}/logs`, `/habits/{id}/stats`, `/health`.
+- Test: `pytest -q` (uses in-memory SQLite and mocked external HTTP).
+
+
 ## Table of Contents
 - [Why This Project Matters](#why-this-project-matters)
 - [Quickstart](#quickstart)
