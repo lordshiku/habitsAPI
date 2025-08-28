@@ -47,11 +47,12 @@ uvicorn app.main:app --reload
 
 Open the interactive docs: http://127.0.0.1:8000/docs
 
-Run tests:
+here onward, chat gpt was used to make the read me
+## Run tests:
 
 pytest -q
 
-Architecture at a Glance
+## Architecture at a Glance
 
 Stack: FastAPI, SQLAlchemy 2.0 (SQLite), Pydantic v2, httpx, pytest, pytest-asyncio, respx
 
@@ -68,7 +69,7 @@ app/
 tests/
   test_habits.py     # async API tests with in-memory DB & mocked HTTP
 
-Data Model
+## Data Model
 
 Entities
 
@@ -86,7 +87,7 @@ Relationship
 
 Habit 1 ─── * HabitLog
 
-API Reference
+## API Reference
 Method	Path	Purpose	Status codes
 GET	/health	Liveness check	200
 POST	/habits	Create a habit (+ external quote)	201 Created, 409
@@ -124,7 +125,7 @@ Get streak stats
 
 curl -s http://127.0.0.1:8000/habits/1/stats
 
-External Integration (httpx)
+## External Integration (httpx)
 
 POST /habits calls https://api.quotable.io/random using httpx (async).
 
@@ -140,7 +141,7 @@ async def fetch_motivational_quote(timeout: float = 5.0) -> str | None:
             return r.json().get("content")
     return None
 
-Streak Algorithm (Business Logic)
+## Streak Algorithm (Business Logic)
 
 Pull all logs for a habit, ordered by date.
 
@@ -152,7 +153,7 @@ longest streak: maximum contiguous run overall.
 
 Linear-time scan (O(n)), leveraging DB sort for efficiency.
 
-Testing Strategy (pytest)
+## Testing Strategy (pytest)
 
 Goals covered
 
@@ -186,7 +187,7 @@ async def test_create_habit_fetches_quote(client):
         return_value=httpx.Response(200, json={"content": "Stay consistent."})
     )
 
-Design Choices & Trade-offs
+## Design Choices & Trade-offs
 
 SQLite for portability; easily swapped to Postgres by changing DATABASE_URL.
 
@@ -198,7 +199,7 @@ App factory + DI simplify testing and future extension.
 
 No auth (kept focused). JWT can be added behind a dependency.
 
-Extending the Project
+## Extending the Project
 
 Auth: JWT/OAuth2 with per-user habit ownership.
 
@@ -212,7 +213,7 @@ Observability: structured logging, metrics, tracing.
 
 CI/CD: GitHub Actions to run tests on push/PR; add coverage badge.
 
-Requirements
+## Requirements
 
 Python 3.10–3.12
 
