@@ -33,7 +33,7 @@ An intermediate **REST API** that lets you create habits, record daily logs, com
 
 ## Quickstart
 
-```bash
+bash
 python -m venv .venv
 # Windows:
 .venv\Scripts\activate
